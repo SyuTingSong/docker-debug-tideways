@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source phpext.sh
+source php.env.sh
+
+phpext phpredis 3.1.2 ""
+
+cat > $INI_SCAN_DIR/redis.ini <<EOF
+[redis]
+extension=redis.so
+
+EOF
+

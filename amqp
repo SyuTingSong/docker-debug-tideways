@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source phpext.sh
+source php.env.sh
+
+phpext amqp 1.9.1
+
+cat > $INI_SCAN_DIR/amqp.ini <<EOF
+[amqp]
+extension=amqp.so
+
+EOF
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+source setup.sh
+setup rabbitmq-c 0.8.0 '' 'autoreconf -i'
+

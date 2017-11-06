@@ -1,0 +1,21 @@
+#!/bin/bash
+
+apt-get update
+apt-get install -y sudo libpcre++-dev libssl-dev libxml2-dev pkg-config\
+   libbz2-dev libtool vim-tiny telnet\
+   libcurl4-openssl-dev libjpeg8-dev libpng12-dev libicu-dev libmcrypt-dev \
+   autoconf libjansson-dev libjemalloc-dev cython build-essential \
+   tcl libxslt1-dev libldb-dev libldap2-dev \
+   libfreetype6-dev \
+   libpcre++0v5 libssl1.0.0 libxml2 libbz2-1.0 libcurl3 libjpeg8 \
+   libpng12-0 libicu55 libmcrypt4 \
+   libjansson4 libjemalloc1 libxslt1.1 \
+   libldb1 libldap-2.4-2 libfreetype6
+
+cd /usr/lib
+fs=`ls x86_64-linux-gnu/lib{ldap,lber}*`
+for f in $fs; do
+  ln -s $f
+done
+cd -
+

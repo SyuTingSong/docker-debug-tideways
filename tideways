@@ -1,0 +1,22 @@
+#!/bin/bash
+
+source phpext.sh
+source php.env.sh
+
+echo 'deb http://lib.xts.so/mirror/s3-eu-west-1.amazonaws.com/qafoo-profiler/packages debian main' > /etc/apt/sources.list.d/tideways.list
+cat tideways.gpg | apt-key add -
+apt-get update
+apt-get install -y tideways-php
+
+cat > $INI_SCAN_DIR/tideways.ini <<EOF
+[tideways]
+extension=tideways.so
+tideways.udp_connection="tideways:8135"
+tideways.connection="tcp://tideways:9135"
+tideways.sample_rate=25
+tideways.monitor_cli=1
+EOF
+
+#ln -s /usr/lib/tideways/tideways-php-7.0.so /usr/local/php7/lib/php/extensions/no-debug-non-zts-20151012/tideways.so
+#ln -s /usr/lib/tideways/Tideways.php /usr/local/php7/lib/php/extensions/no-debug-non-zts-20151012/Tideways.php
+

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+CWD=`pwd`
+VER=0.13.3
+
+cd /tmp
+tar xJf "$CWD/hiredis-$VER.tar.xz"
+cd hiredis-$VER
+make -j$(nproc) && make install
+ldconfig
+cd $CWD
+

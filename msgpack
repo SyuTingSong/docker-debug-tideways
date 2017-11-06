@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source phpext.sh
+source php.env.sh
+
+phpext msgpack 2.0.2 ""
+
+cat > $INI_SCAN_DIR/msgpack.ini <<EOF
+[swoole]
+extension=msgpack.so
+
+EOF
+

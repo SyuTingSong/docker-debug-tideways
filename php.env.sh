@@ -1,0 +1,5 @@
+PREFIX=/usr/local/php7
+CONF_DIR=$PREFIX/etc
+INI_DIR=$CONF_DIR
+INI_SCAN_DIR=$INI_DIR/conf.d
+

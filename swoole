@@ -1,0 +1,14 @@
+#!/bin/bash
+
+source phpext.sh
+source php.env.sh
+
+phpext swoole 1.9.22 "--enable-ringbuffer \
+ --enable-async-redis --enable-openssl"
+
+cat > $INI_SCAN_DIR/swoole.ini <<EOF
+[swoole]
+extension=swoole.so
+
+EOF
+
